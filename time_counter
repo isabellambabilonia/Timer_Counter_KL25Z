@@ -1,0 +1,6 @@
+SIM->SOPT2 |= 0x01000000; 
+TPM0->SC = 0; // Deshabilita temporizador
+TPM0->SC = 0x80; // Limpia TOF
+TPM0->MOD = 49; // Cada 50 eventos (0 a 49)
+TPM0->CNT = 0; 
+TPM0->SC |= 0xC8; // CLK: LPTPM_EXTCLK, Enable interrupt, Counter on edge
